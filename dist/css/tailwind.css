@@ -882,6 +882,10 @@ video {
   flex: 1 1 0%;
 }
 
+.flex-grow{
+  flex-grow: 1;
+}
+
 .basis-1{
   flex-basis: 0.25rem;
 }
@@ -1037,6 +1041,10 @@ video {
 
 .overflow-hidden{
   overflow: hidden;
+}
+
+.overflow-x-hidden{
+  overflow-x: hidden;
 }
 
 .rounded-\[10px\]{
@@ -1876,6 +1884,16 @@ figure {
   color: rgb(165 165 165 / var(--tw-text-opacity));
 }
 
+@media (min-width: 350px){
+  .xs\:flex-1{
+    flex: 1 1 0%;
+  }
+
+  .xs\:flex-row{
+    flex-direction: row;
+  }
+}
+
 @media (min-width: 640px){
   .sm\:-mt-24{
     margin-top: -6rem;
@@ -2061,14 +2079,6 @@ figure {
 
   .lg\:hidden{
     display: none;
-  }
-
-  .lg\:h-\[32\.5rem\]{
-    height: 32.5rem;
-  }
-
-  .lg\:h-\[33\.5rem\]{
-    height: 33.5rem;
   }
 
   .lg\:h-\[33rem\]{
