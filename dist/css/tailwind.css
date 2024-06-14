@@ -882,10 +882,6 @@ video {
   flex: 1 1 0%;
 }
 
-.flex-grow{
-  flex-grow: 1;
-}
-
 .basis-1{
   flex-basis: 0.25rem;
 }
@@ -1884,7 +1880,7 @@ figure {
   color: rgb(165 165 165 / var(--tw-text-opacity));
 }
 
-@media (min-width: 350px){
+@media (min-width: 475px){
   .xs\:flex-1{
     flex: 1 1 0%;
   }
