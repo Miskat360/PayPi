@@ -1,0 +1,2736 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PayPi</title>
+    <!-- scss -->
+    <link rel="stylesheet" href="assets/scss/style.css" />
+    <!-- css -->
+    <link rel="stylesheet" href="dist/css/tailwind.css" />
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="font-poppins">
+    <!-- place header here -->
+    <header class="container">
+      <!-- top navbar -->
+      <div
+        class="py-3 flex items-center sm:justify-between justify-end text-[13px] font-medium"
+      >
+        <p class="sm:block hidden">FREE Express Shipping On Orders $99+</p>
+        <div class="flex items-center gap-5 text-black2">
+          <div class="pr-4">
+            <select name="currency" id="currency" class="cursor-pointer">
+              <option value="usd">USD</option>
+              <option value="bdt">BDT</option>
+            </select>
+            <select name="language" id="language" class="cursor-pointer">
+              <option value="eng">ENG</option>
+              <option value="ben">BEN</option>
+            </select>
+          </div>
+          <a
+            href="/"
+            class="hover:text-blue2 duration-300 items-center gap-1 lg:flex hidden"
+          >
+            <i class="fa-solid fa-location-dot text-base"></i>
+            <span>Our Stores</span>
+          </a>
+          <a
+            href="/"
+            class="hover:text-blue2 duration-300 items-center gap-1 md:flex hidden"
+          >
+            <i class="fa-solid fa-truck text-base"></i>
+            <span>Track Your Order</span>
+          </a>
+          <a
+            href="/"
+            class="hover:text-blue2 duration-300 md:flex hidden items-center gap-1"
+          >
+            <i class="fa-regular fa-circle-question text-base"></i>
+            <span>Help</span>
+          </a>
+          <a
+            href="/"
+            class="hover:text-blue2 duration-300 flex items-center gap-1"
+          >
+            <i class="fa-regular fa-heart text-base"></i>
+            <span>Wishlist</span>
+          </a>
+        </div>
+      </div>
+      <!-- logo & search navbar -->
+      <div class="flex items-center pt-1 justify-between">
+        <!-- logo -->
+        <div class="lg:basis-2/12 basis-3/12 flex items-center gap-2 sm:gap-4">
+          <!-- hamberger menu -->
+          <div id="hamburger_Menu" class="lg:hidden block text-2xl cursor-pointer">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+          <a href="/" class="w-[120px] block">
+            <img src="assets/images/ecommerce.png" alt="logo" class="w-full" />
+          </a>
+        </div>
+        <!-- search bar -->
+        <div class="basis-6/12 lg:block hidden">
+          <form
+            action=""
+            class="border-2 py-[11px] px-4 text-sm font-light tracking-wider rounded-lg border-blue2 text-black2 flex justify-between items-center"
+          >
+            <input
+              type="text"
+              placeholder="Search..."
+              class="w-[90%] outline-none"
+            />
+            <button
+              class="hover:scale-[1.05] hover:text-blue3 transition-all duration-300 cursor-pointer"
+            >
+              <i class="fa-solid fa-magnifying-glass text-base"></i>
+            </button>
+          </form>
+        </div>
+        <!-- cart & user -->
+        <div
+          class="lg:basis-4/12 basis-auto pl-5 xl:pl-10 flex items-center justify-between gap-2"
+        >
+          <!-- user sign in & register -->
+          <div class="sm:flex items-center gap-2 hidden">
+            <div class="text-3xl text-black2">
+              <i class="fa-solid fa-user"></i>
+            </div>
+            <div>
+              <p class="text-xs font-medium text-black1">Welcome</p>
+              <div class="font-semibold text-black2">
+                <a href="/" class="hover:text-blue3 transition-all duration-300"
+                  >Sing In</a
+                >
+                /
+                <a href="/" class="hover:text-blue3 transition-all duration-300"
+                  >Register</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Shopping cart -->
+          <a href="/">
+            <div class="flex items-center gap-2">
+              <div class="text-3xl text-black2 relative">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <div
+                  class="absolute -top-2 -right-1 text-xs bg-yellow3 w-[15px] h-4 flex items-center justify-center rounded-full"
+                >
+                  0
+                </div>
+              </div>
+              <div class="sm:block hidden">
+                <p class="text-xs font-medium text-black1">Shopping Cart</p>
+                <div class="font-bold text-blue2">$0.00</div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <!-- main link navbar -->
+      <ul
+        class="bg-blue2 text-white text-[15px] hidden lg:flex lg:items-center gap-10 capitalize py-[21px] px-6 mt-6 font-medium tracking-tight rounded-[10px]"
+      >
+        <li class="mr-[4vw] hover:text-yellow3">
+          <a href="/" class="flex items-center gap-2">
+            <i class="fa-solid fa-bars text-xl text-yellow3"></i>
+            <span>All Departments</span>
+          </a>
+        </li>
+        <li class="hover:text-yellow3"><a href="/">home</a></li>
+        <li class="hover:text-yellow3"><a href="/">products</a></li>
+        <li class="hover:text-yellow3"><a href="/">blog</a></li>
+        <li class="hover:text-yellow3"><a href="/">customer service</a></li>
+        <li class="hover:text-yellow3"><a href="/">gift cards</a></li>
+        <li class="hover:text-yellow3 ml-auto">
+          <a href="/">Best Offers Here</a>
+        </li>
+      </ul>
+    </header>
+    <!-- side navbar -->
+    <div
+    id="sideNav_MainContainer"
+      class="hidden w-full h-screen fixed top-0 left-0 z-50 bg-gradient-to-t to-black/30 from-black/30"
+    >
+      <div class="w-[290px] h-full bg-white pt-4">
+        <!-- side navbar search bar -->
+        <form
+          action=""
+          class="py-[10px] px-6 text-sm font-light tracking-wider rounded-full bg-gray2 text-black2 flex justify-between items-center mx-3"
+        >
+          <input
+            type="text"
+            placeholder="Search..."
+            class="w-[90%] outline-none bg-inherit"
+          />
+          <button>
+            <i class="fa-solid fa-magnifying-glass text-base"></i>
+          </button>
+        </form>
+        <!-- side bar main menu & categories -->
+          <div class="tabMainCon py-6">
+            <nav class="">
+              <ul
+                id="tabContainer"
+                class="flex text-center text-sm font-medium"
+                data-gds-nav="2"
+              >
+                <li
+                  class="gds-nav-tabs__list-item gds-nav-tabs__list-item--active basis-1/2"
+                  data-gds-nav-item=""
+                >
+                  <a
+                    class="itm active active-tab gds-nav-tabs__link border-b-2 block pb-2 cursor-pointer"
+                    data-gds-nav-button="1"
+                    data-gds-nav-type="tab"
+                    >Main Menu</a
+                  >
+                </li>
+                <li class="gds-nav-tabs__list-item basis-1/2">
+                  <a class="itm gds-nav-tabs__link border-b-2 block pb-2 cursor-pointer">Categories</a>
+                </li>
+              </ul>
+            </nav>
+            <section class="container_tabs gds-card">
+              <ul class="tabs active flex flex-col text-sm capitalize font-medium">
+                <li class="py-4 px-4 border-b"><a href="#">home</a></li>
+                <li class="py-4 px-4 border-b"><a href="#">products</a></li>
+                <li class="py-4 px-4 border-b"><a href="#">blog</a></li>
+                <li class="py-4 px-4 border-b"><a href="#">Customer Service</a></li>
+                <li class="py-4 px-4 border-b"><a href="#">Gift Cards</a></li>
+              </ul>
+              
+              <ul class="tabs flex flex-col text-sm capitalize font-medium">
+                <li class="py-4 px-4 border-b"><a href="#"><i class="fa-solid fa-hat-cowboy pr-2"></i>fashion</a></li>
+                <li class="py-4 px-4 border-b"><a href="#"><i class="fa-solid fa-mobile-screen-button pr-2"></i>electronics</a></li>
+                <li class="py-4 px-4 border-b"><a href="#"><i class="fa-solid fa-blender-phone pr-2"></i>appliances</a></li>
+                <li class="py-4 px-4 border-b"><a href="#"><i class="fa-solid fa-couch pr-2"></i>home & decor</a></li>
+                <li class="py-4 px-4 border-b"><a href="#"><i class="fa-solid fa-microphone-lines pr-2"></i>tables & desks</a></li>
+                <li class="py-4 px-4 border-b"><a href="#"><i class="fa-solid fa-baseball-bat-ball pr-2"></i>sports</a></li>
+              </ul>
+            </section>
+          </div>
+        <!-- social icons -->
+        <div class="flex items-center gap-3 mt-5 justify-center">
+          <a
+            href="https:facebook.com"
+            class="w-10 h-10 text-[13px] flex items-center justify-center rounded-full text-white bg-[#38548E]"
+            ><i class="fa-brands fa-facebook-f"></i
+          ></a>
+          <a
+            href="https:twitter.com"
+            class="w-10 h-10 text-xs flex items-center justify-center rounded-full text-white bg-[#1A9BCE]"
+            ><i class="fa-brands fa-x-twitter"></i
+          ></a>
+          <a
+            href="https:instagram.com"
+            class="w-10 h-10 text-sm flex items-center justify-center rounded-full text-white bg-[#FA1F73]"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+        </div>
+      </div>
+      <div id="sideNavCloseBtn" class="absolute top-5 right-6 text-white text-xl bg-black/90 w-8 h-8 flex items-center justify-center cursor-pointer"><i class="fa-solid fa-xmark"></i></div>
+    </div>
+    <!-- all sections -->
+    <main>
+      <!-- slider section -->
+      <section class="container mt-5">
+        <swiper-container
+          class="mySwiper"
+          pagination="true"
+          pagination-dynamic-bullets="true"
+        >
+          <!-- slider number 1 -->
+          <swiper-slide>
+            <div
+              class="bg-[url('../../assets/images/background1.png')] bg-cover bg-bottom w-full md:h-[65vh] lg:px-[4.3rem] md:px-[2rem] px-[1.2rem] py-8 rounded-xl"
+            >
+              <div
+                class="flex md:flex-row flex-col gap-6 md:items-center h-full w-full text-left"
+              >
+                <!-- header text -->
+                <div class="basis-5/12">
+                  <!-- title text -->
+                  <h1
+                    class="lg:text-4xl text-[28px] font-bold text-black3 leading-tight mb-8"
+                  >
+                    Mega Sale<br />
+                    Special Offer<br />
+                    Up to 60% OFF
+                  </h1>
+                  <!-- big button -->
+                  <a
+                    href="/"
+                    class="border-2 border-gray4 md:py-3 py-2 md:px-7 px-4 rounded-full capitalize md:text-[15px] text-sm tracking-widest text-black1"
+                    >exclusive product new arrival</a
+                  >
+                  <!-- dubble button -->
+                  <div class="mt-10 flex gap-4">
+                    <a
+                      href="/"
+                      class="capitalize text-black3 text-xs font-medium bg-yellow3 py-3 px-9 rounded-[4px]"
+                      >shop now</a
+                    >
+                    <a
+                      href="/"
+                      class="capitalize text-white text-xs font-medium bg-black3 py-3 px-7 rounded-[4px]"
+                      >explore more</a
+                    >
+                  </div>
+                </div>
+                <!-- header image -->
+                <div class="basis-7/12">
+                  <img
+                    src="assets/images/bg-img1.png"
+                    alt=""
+                    class="lg:w-[370px] md:w-[320px] w-[300px]"
+                  />
+                </div>
+              </div>
+            </div>
+          </swiper-slide>
+          <!-- slider number 2 -->
+          <swiper-slide>
+            <div
+              class="bg-[url('../../assets/images/background2.png')] bg-cover bg-bottom w-full md:h-[65vh] lg:px-[4.3rem] md:px-[2rem] px-[1.2rem] py-8 rounded-xl"
+            >
+              <div
+                class="flex md:flex-row flex-col-reverse gap-6 md:items-center h-full w-full md:text-left text-right"
+              >
+                <!-- header image -->
+                <div class="basis-6/12">
+                  <img
+                    src="assets/images/bg-img2.png"
+                    alt=""
+                    class="lg:w-[370px] md:w-[320px] w-[300px]"
+                  />
+                </div>
+                <!-- header text -->
+                <div class="basis-6/12">
+                  <!-- title text -->
+                  <h1
+                    class="lg:text-4xl text-[28px] font-bold text-black3 leading-tight mb-8"
+                  >
+                    Mega Sale<br />
+                    Special Offer<br />
+                    Up to 60% OFF
+                  </h1>
+                  <!-- big button -->
+                  <a
+                    href="/"
+                    class="border-2 border-gray4 md:py-3 py-2 md:px-7 px-4 rounded-full capitalize md:text-[15px] text-sm tracking-widest text-black1"
+                    >exclusive product new arrival</a
+                  >
+                  <!-- dubble button -->
+                  <div class="mt-10 flex gap-4">
+                    <a
+                      href="/"
+                      class="capitalize text-black3 text-xs font-medium bg-yellow3 py-3 px-9 rounded-[4px]"
+                      >shop now</a
+                    >
+                    <a
+                      href="/"
+                      class="capitalize text-white text-xs font-medium bg-black3 py-3 px-7 rounded-[4px]"
+                      >explore more</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </swiper-slide>
+        </swiper-container>
+      </section>
+      <!-- product card section -->
+      <section class="container my-5">
+        <div class="grid gap-5 xl:grid-cols-4 md:grid-cols-2 sm:grid-cols-1">
+          <!-- grid product card item 1 -->
+          <a href="#" class="mini-card-btn">
+            <div
+              class="flex gap-4 justify-center bg-gray3 rounded-lg py-2 pl-2 pr-[13px]"
+            >
+              <div class="basis-2/5">
+                <!-- card image -->
+                <img
+                  src="assets/images/product-card-img1.png"
+                  alt=""
+                  class="float-end rounded-lg"
+                />
+              </div>
+              <div class="basis-3/5 text-lg text-black3">
+                <!-- card title -->
+                <h1>Side-By Side Pro</h1>
+                <h1 class="font-bold">Refrigerator</h1>
+                <!-- card button -->
+                <div class="flex items-center gap-2 text-[13px]">
+                  <span class="font-semibold">Shop Now</span>
+                  <div
+                    class="card-icon bg-yellow3 w-5 h-5 rounded-full flex items-center justify-center transition-all duration-300"
+                  >
+                    <i class="fa-solid fa-angle-right"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          <!-- grid product card item 2 -->
+          <a href="#" class="mini-card-btn">
+            <div
+              class="flex gap-4 justify-center bg-gray3 rounded-lg py-2 pl-2 pr-[13px]"
+            >
+              <div class="basis-2/5">
+                <!-- card image -->
+                <img
+                  src="assets/images/product-card-img2.png"
+                  alt=""
+                  class="float-end rounded-lg"
+                />
+              </div>
+              <div class="basis-3/5 text-lg text-black3">
+                <!-- card title -->
+                <h1 class="font-bold">Samsung Galaxy</h1>
+                <h1>Tab S6</h1>
+                <!-- card button -->
+                <div class="flex items-center gap-2 text-[13px]">
+                  <span class="font-semibold">Shop Now</span>
+                  <div
+                    class="card-icon bg-yellow3 w-5 h-5 rounded-full flex items-center justify-center transition-all duration-300"
+                  >
+                    <i class="fa-solid fa-angle-right"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          <!-- grid product card item 3 -->
+          <a href="#" class="mini-card-btn">
+            <div
+              class="flex gap-4 justify-center bg-gray3 rounded-lg py-2 pl-2 pr-[13px]"
+            >
+              <div class="basis-2/5">
+                <!-- card image -->
+                <img
+                  src="assets/images/product-card-img3.png"
+                  alt=""
+                  class="float-end rounded-lg"
+                />
+              </div>
+              <div class="basis-3/5 text-lg text-black3">
+                <!-- card title -->
+                <h1>Classic</h1>
+                <h1 class="font-bold">Armchair</h1>
+                <h1>Porto Style</h1>
+                <!-- card button -->
+                <div class="flex items-center gap-2 text-[13px]">
+                  <span class="font-semibold">Shop Now</span>
+                  <div
+                    class="card-icon bg-yellow3 w-5 h-5 rounded-full flex items-center justify-center transition-all duration-300"
+                  >
+                    <i class="fa-solid fa-angle-right"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          <!-- grid product card item 4 -->
+          <a href="#" class="mini-card-btn">
+            <div
+              class="flex gap-4 justify-center bg-gray3 rounded-lg py-2 pl-2 pr-[13px]"
+            >
+              <div class="basis-2/5">
+                <!-- card image -->
+                <img
+                  src="assets/images/product-card-img4.png"
+                  alt=""
+                  class="float-end rounded-lg"
+                />
+              </div>
+              <div class="basis-3/5 text-lg text-black3">
+                <!-- card title -->
+                <h1>Battery</h1>
+                <h1 class="font-bold">Drill X2</h1>
+                <h1>Pro Version</h1>
+                <!-- card button -->
+                <div class="flex items-center gap-2 text-[13px]">
+                  <span class="font-semibold">Shop Now</span>
+                  <div
+                    class="card-icon bg-yellow3 w-5 h-5 rounded-full flex items-center justify-center transition-all duration-300"
+                  >
+                    <i class="fa-solid fa-angle-right"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+      <!-- catagory section -->
+      <section class="container py-5 md:py-8">
+        <div
+          class="grid gap-5 xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2"
+        >
+          <!-- grid catagory item 1 -->
+          <div class="flex items-center flex-col">
+            <div
+              class="cata-img-con rounded-full overflow-hidden w-[115px] cursor-pointer relative mb-2"
+            >
+              <img
+                src="assets/images/category-1.jpg"
+                alt="home & decor"
+                loading="lazy"
+                class="transition-all duration-700"
+              />
+              <div
+                class="overlay w-full h-full absolute bg-[rgba(0,0,0,0.07)] left-0 top-0 opacity-0 hover:opacity-[1]"
+              ></div>
+            </div>
+            <h1
+              class="font-semibold capitalize text-black3 hover:text-blue3 cursor-pointer"
+            >
+              home & decor
+            </h1>
+            <p class="text-sm font-medium text-gray6">8 products</p>
+          </div>
+          <!-- grid catagory item 2 -->
+          <div class="flex items-center flex-col">
+            <div
+              class="cata-img-con rounded-full overflow-hidden w-[115px] cursor-pointer relative mb-2"
+            >
+              <img
+                src="assets/images/category-2.jpg"
+                alt="home & decor"
+                loading="lazy"
+                class="transition-all duration-700"
+              />
+              <div
+                class="overlay w-full h-full absolute bg-[rgba(0,0,0,0.07)] left-0 top-0 opacity-0 hover:opacity-[1]"
+              ></div>
+            </div>
+            <h1
+              class="font-semibold capitalize text-black3 hover:text-blue3 cursor-pointer"
+            >
+              Tables & Desks
+            </h1>
+            <p class="text-sm font-medium text-gray6">6 products</p>
+          </div>
+          <!-- grid catagory item 3 -->
+          <div class="flex items-center flex-col">
+            <div
+              class="cata-img-con rounded-full overflow-hidden w-[115px] cursor-pointer relative mb-2"
+            >
+              <img
+                src="assets/images/category-3.jpg"
+                alt="home & decor"
+                loading="lazy"
+                class="transition-all duration-700"
+              />
+              <div
+                class="overlay w-full h-full absolute bg-[rgba(0,0,0,0.07)] left-0 top-0 opacity-0 hover:opacity-[1]"
+              ></div>
+            </div>
+            <h1
+              class="font-semibold capitalize text-black3 hover:text-blue3 cursor-pointer"
+            >
+              Lighting
+            </h1>
+            <p class="text-sm font-medium text-gray6">2 products</p>
+          </div>
+          <!-- grid catagory item 4 -->
+          <div class="flex items-center flex-col">
+            <div
+              class="cata-img-con rounded-full overflow-hidden w-[115px] cursor-pointer relative mb-2"
+            >
+              <img
+                src="assets/images/category-4.jpg"
+                alt="home & decor"
+                loading="lazy"
+                class="transition-all duration-700"
+              />
+              <div
+                class="overlay w-full h-full absolute bg-[rgba(0,0,0,0.07)] left-0 top-0 opacity-0 hover:opacity-[1]"
+              ></div>
+            </div>
+            <h1
+              class="font-semibold capitalize text-black3 hover:text-blue3 cursor-pointer"
+            >
+              Storage
+            </h1>
+            <p class="text-sm font-medium text-gray6">1 product</p>
+          </div>
+          <!-- grid catagory item 5 -->
+          <div class="flex items-center flex-col">
+            <div
+              class="cata-img-con rounded-full overflow-hidden w-[115px] cursor-pointer relative mb-2"
+            >
+              <img
+                src="assets/images/category-5.jpg"
+                alt="home & decor"
+                loading="lazy"
+                class="transition-all duration-700"
+              />
+              <div
+                class="overlay w-full h-full absolute bg-[rgba(0,0,0,0.07)] left-0 top-0 opacity-0 hover:opacity-[1]"
+              ></div>
+            </div>
+            <h1
+              class="font-semibold capitalize text-black3 hover:text-blue3 cursor-pointer"
+            >
+              Appliances
+            </h1>
+            <p class="text-sm font-medium text-gray6">6 products</p>
+          </div>
+          <!-- grid catagory item 6 -->
+          <div class="flex items-center flex-col">
+            <div
+              class="cata-img-con rounded-full overflow-hidden w-[115px] cursor-pointer relative mb-2"
+            >
+              <img
+                src="assets/images/category-6.jpg"
+                alt="home & decor"
+                loading="lazy"
+                class="transition-all duration-700"
+              />
+              <div
+                class="overlay w-full h-full absolute bg-[rgba(0,0,0,0.07)] left-0 top-0 opacity-0 hover:opacity-[1]"
+              ></div>
+            </div>
+            <h1
+              class="font-semibold capitalize text-black3 hover:text-blue3 cursor-pointer"
+            >
+              Automotive
+            </h1>
+            <p class="text-sm font-medium text-gray6">3 products</p>
+          </div>
+          <!-- grid catagory item 7 -->
+          <div class="flex items-center flex-col">
+            <div
+              class="cata-img-con rounded-full overflow-hidden w-[115px] cursor-pointer relative mb-2"
+            >
+              <img
+                src="assets/images/category-7.jpg"
+                alt="home & decor"
+                loading="lazy"
+                class="transition-all duration-700"
+              />
+              <div
+                class="overlay w-full h-full absolute bg-[rgba(0,0,0,0.07)] left-0 top-0 opacity-0 hover:opacity-[1]"
+              ></div>
+            </div>
+            <h1
+              class="font-semibold capitalize text-black3 hover:text-blue3 cursor-pointer"
+            >
+              tools
+            </h1>
+            <p class="text-sm font-medium text-gray6">5 products</p>
+          </div>
+          <!-- grid catagory item 8 -->
+          <div class="flex items-center flex-col">
+            <div
+              class="cata-img-con rounded-full overflow-hidden w-[115px] cursor-pointer relative mb-2"
+            >
+              <img
+                src="assets/images/category-8.jpg"
+                alt="home & decor"
+                loading="lazy"
+                class="transition-all duration-700"
+              />
+              <div
+                class="overlay w-full h-full absolute bg-[rgba(0,0,0,0.07)] left-0 top-0 opacity-0 hover:opacity-[1]"
+              ></div>
+            </div>
+            <h1
+              class="font-semibold capitalize text-black3 hover:text-blue3 cursor-pointer"
+            >
+              luggage
+            </h1>
+            <p class="text-sm font-medium text-gray6">4 products</p>
+          </div>
+          <!-- grid catagory item 9 -->
+          <div class="flex items-center flex-col">
+            <div
+              class="cata-img-con rounded-full overflow-hidden w-[115px] cursor-pointer relative mb-2"
+            >
+              <img
+                src="assets/images/category-9.jpg"
+                alt="home & decor"
+                loading="lazy"
+                class="transition-all duration-700"
+              />
+              <div
+                class="overlay w-full h-full absolute bg-[rgba(0,0,0,0.07)] left-0 top-0 opacity-0 hover:opacity-[1]"
+              ></div>
+            </div>
+            <h1
+              class="font-semibold capitalize text-black3 hover:text-blue3 cursor-pointer"
+            >
+              Sports
+            </h1>
+            <p class="text-sm font-medium text-gray6">2 products</p>
+          </div>
+          <!-- grid catagory item 10 -->
+          <div class="flex items-center flex-col">
+            <div
+              class="cata-img-con rounded-full overflow-hidden w-[115px] cursor-pointer relative mb-2"
+            >
+              <img
+                src="assets/images/category-10.jpg"
+                alt="home & decor"
+                loading="lazy"
+                class="transition-all duration-700"
+              />
+              <div
+                class="overlay w-full h-full absolute bg-[rgba(0,0,0,0.07)] left-0 top-0 opacity-0 hover:opacity-[1]"
+              ></div>
+            </div>
+            <h1
+              class="font-semibold capitalize text-black3 hover:text-blue3 cursor-pointer"
+            >
+              Fashion
+            </h1>
+            <p class="text-sm font-medium text-gray6">10 products</p>
+          </div>
+          <!-- grid catagory item 11 -->
+          <div class="flex items-center flex-col">
+            <div
+              class="cata-img-con rounded-full overflow-hidden w-[115px] cursor-pointer relative mb-2"
+            >
+              <img
+                src="assets/images/category-11.jpg"
+                alt="home & decor"
+                loading="lazy"
+                class="transition-all duration-700"
+              />
+              <div
+                class="overlay w-full h-full absolute bg-[rgba(0,0,0,0.07)] left-0 top-0 opacity-0 hover:opacity-[1]"
+              ></div>
+            </div>
+            <h1
+              class="font-semibold capitalize text-black3 hover:text-blue3 cursor-pointer"
+            >
+              Electronics
+            </h1>
+            <p class="text-sm font-medium text-gray6">8 products</p>
+          </div>
+          <!-- grid catagory item 12 -->
+          <div class="flex items-center flex-col">
+            <div
+              class="cata-img-con rounded-full overflow-hidden w-[115px] cursor-pointer relative mb-2"
+            >
+              <img
+                src="assets/images/category-12.jpg"
+                alt="home & decor"
+                loading="lazy"
+                class="transition-all duration-700"
+              />
+              <div
+                class="overlay w-full h-full absolute bg-[rgba(0,0,0,0.07)] left-0 top-0 opacity-0 hover:opacity-[1]"
+              ></div>
+            </div>
+            <h1
+              class="font-semibold capitalize text-black3 hover:text-blue3 cursor-pointer"
+            >
+              Kitchen
+            </h1>
+            <p class="text-sm font-medium text-gray6">2 products</p>
+          </div>
+        </div>
+      </section>
+      <!-- main products section & mini banner/card section -->
+      <section class="container pt-[3.8rem] pb-[3.2rem]">
+        <div class="flex flex-col lg:flex-row gap-10">
+          <div class="basis-[73%]">
+            <!-- discount card grid -->
+            <div class="grid sm:grid-cols-3 grid-cols-2 gap-x-4 gap-y-10 pt-4">
+              <!-- grid product 1 -->
+              <div
+                class="hover:bg-white hover:drop-shadow-2xl hover:-translate-y-3 p-4 -mx-4 -mt-4 lg:-mb-40 hover:z-10 relative group transition-all duration-500"
+              >
+                <!-- product image -->
+                <div class="relative overflow-hidden cursor-pointer">
+                  <!-- main image -->
+                  <img
+                    src="assets/images/product-discount1.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="hover:opacity-0 transition-opacity duration-300"
+                  />
+                  <!-- hover image -->
+                  <img
+                    src="assets/images/product-discount1-h.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="absolute top-0 left-0 opacity-0 hover:opacity-[1] hover:scale-[1.15] transition-transform duration-[2s]"
+                  />
+                  <!-- hot & discount tag -->
+                  <div
+                    class="absolute top-2 left-2 font-medium flex flex-col gap-[5px]"
+                  >
+                    <div
+                      class="bg-green text-[11px] px-[10px] py-[2px] uppercase"
+                    >
+                      hot
+                    </div>
+                  </div>
+                </div>
+
+                <!-- product body -->
+                <div class="pt-4 text-[#494949]">
+                  <p class="text-[10px] uppercase text-gray6">
+                    <a href="/" class="hover:text-blue3">home & decor</a>,
+                    <a href="/" class="hover:text-blue3">lighting</a>,
+                    <a href="/" class="hover:text-blue3">tables & desks</a>
+                  </p>
+                  <!-- title -->
+                  <a
+                    href="/"
+                    class="font-medium md:text-[15px] text-sm capitalize hover:text-blue3 cursor-pointer"
+                    >CIMOTA Upholstered armchair</a
+                  >
+                  <!-- 5 star -->
+                  <p class="text-xs -tracking-[1.6px] my-[6px] text-black1">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star text-gray6"></i>
+                  </p>
+                  <h2 class="md:text-lg text-base font-semibold">
+                    $80.00 - $89.00
+                  </h2>
+                  <!-- hover visible -->
+                  <div class="py-2 hidden lg:group-hover:block">
+                    <p class="text-[13px] group-hover:text-gray6">
+                      Duis aute irure dolor in reprehenderit in voluptate velit
+                      esse cillum dolore eu fugiat nulla...
+                    </p>
+                    <!-- Wishlist, add to cart & details icons -->
+                    <div class="flex items-center gap-[5px] text-xl mt-3">
+                      <a
+                        href=""
+                        class="hover:bg-black3 hover:text-white transition-all duration-500 w-[43px] h-[43px] flex items-center justify-center"
+                      >
+                        <i class="fa-regular fa-heart"></i>
+                      </a>
+                      <a
+                        href=""
+                        class="flex-1 bg-black3 hover:bg-[#353434] text-center py-[6px] text-white uppercase"
+                      >
+                        <i class="fa-solid fa-bag-shopping mr-1"></i>
+                        <span class="text-[13px]">add to cart</span>
+                      </a>
+                      <a
+                        href=""
+                        class="hover:bg-black3 hover:text-white transition-all duration-500 w-[43px] h-[43px] flex items-center justify-center"
+                      >
+                        <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- grid product 2 -->
+              <div
+                class="hover:bg-white hover:drop-shadow-2xl hover:-translate-y-3 p-4 -m-4 lg:h-[33rem] lg:-mb-40 hover:z-10 relative group transition-transform duration-500"
+              >
+                <!-- product image -->
+                <div class="relative overflow-hidden cursor-pointer">
+                  <!-- main image -->
+                  <img
+                    src="assets/images/product-discount2.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="hover:opacity-0 transition-opacity duration-300"
+                  />
+                  <!-- hover image -->
+                  <img
+                    src="assets/images/product-discount2-h.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="absolute top-0 left-0 opacity-0 hover:opacity-[1] hover:scale-[1.15] transition-transform duration-[2s]"
+                  />
+                  <!-- hot & discount tag -->
+                  <div
+                    class="absolute top-2 left-2 font-medium flex flex-col gap-[5px]"
+                  >
+                    <div class="bg-coral text-[11px] px-[10px] py-[2px]">
+                      -8%
+                    </div>
+                  </div>
+                </div>
+
+                <!-- product body -->
+                <div class="pt-4 text-[#494949]">
+                  <p class="text-[10px] uppercase text-gray6">
+                    <a href="/" class="hover:text-blue3">automotive</a>,
+                    <a href="/" class="hover:text-blue3">electronics</a>
+                  </p>
+                  <a
+                    href="/"
+                    class="font-medium md:text-[15px] text-sm capitalize hover:text-blue3 cursor-pointer"
+                    >lG smart magic MR19BA</a
+                  >
+                  <!-- 5 star -->
+                  <p class="text-xs -tracking-[1.6px] my-[6px] text-black1">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star text-gray6"></i>
+                  </p>
+                  <h2 class="md:text-lg text-base font-semibold">
+                    <span class="line-through text-sm">$90.00</span> $82.00
+                  </h2>
+                  <!-- hover visible -->
+                  <div class="py-2 hidden lg:group-hover:block">
+                    <p class="text-[13px] group-hover:text-gray6">
+                      Duis aute irure dolor in reprehenderit in voluptate velit
+                      esse cillum dolore eu fugiat nulla...
+                    </p>
+                    <!-- Wishlist, add to cart & details icons -->
+                    <div class="flex items-center gap-[5px] text-xl mt-3">
+                      <a
+                        href=""
+                        class="hover:bg-black3 hover:text-white transition-all duration-500 w-[43px] h-[43px] flex items-center justify-center"
+                      >
+                        <i class="fa-regular fa-heart"></i>
+                      </a>
+                      <a
+                        href=""
+                        class="flex-1 bg-black3 hover:bg-[#353434] text-center py-[6px] text-white uppercase"
+                      >
+                        <i class="fa-solid fa-bag-shopping mr-1"></i>
+                        <span class="text-[13px]">add to cart</span>
+                      </a>
+                      <a
+                        href=""
+                        class="hover:bg-black3 hover:text-white transition-all duration-500 w-[43px] h-[43px] flex items-center justify-center"
+                      >
+                        <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- grid product 3 -->
+              <div
+                class="hover:bg-white hover:drop-shadow-2xl hover:-translate-y-3 p-4 -mx-4 -mt-4 lg:-mb-40 hover:z-10 relative group transition-all duration-500"
+              >
+                <!-- product image -->
+                <div class="relative overflow-hidden cursor-pointer">
+                  <!-- main image -->
+                  <img
+                    src="assets/images/product-discount3.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="hover:opacity-0 transition-opacity duration-300"
+                  />
+                  <!-- hover image -->
+                  <img
+                    src="assets/images/product-discount3-h.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="absolute top-0 left-0 opacity-0 hover:opacity-[1] hover:scale-[1.15] transition-transform duration-[2s]"
+                  />
+                  <!-- hot & discount tag -->
+                  <div
+                    class="absolute top-2 left-2 font-medium flex flex-col gap-[5px]"
+                  >
+                    <div
+                      class="bg-green text-[11px] px-[10px] py-[2px] uppercase"
+                    >
+                      hot
+                    </div>
+                  </div>
+                </div>
+
+                <!-- product body -->
+                <div class="pt-4 text-[#494949]">
+                  <p class="text-[10px] uppercase text-gray6">
+                    <a href="/" class="hover:text-blue3">appliances</a>,
+                    <a href="/" class="hover:text-blue3">electronices</a>
+                  </p>
+                  <!-- title -->
+                  <a
+                    href="/"
+                    class="font-medium md:text-[15px] text-sm capitalize hover:text-blue3 cursor-pointer"
+                    >hyperX quadCast s</a
+                  >
+                  <!-- 5 star -->
+                  <p class="text-xs -tracking-[1.6px] my-[6px] text-black1">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                  </p>
+                  <h2 class="md:text-lg text-base font-semibold">
+                    $89.00 - $189.00
+                  </h2>
+                  <!-- hover visible -->
+                  <div class="py-2 hidden lg:group-hover:block">
+                    <p class="text-[13px] group-hover:text-gray6">
+                      Duis aute irure dolor in reprehenderit in voluptate velit
+                      esse cillum dolore eu fugiat nulla...
+                    </p>
+                    <!-- Wishlist, add to cart & details icons -->
+                    <div class="flex items-center gap-[5px] text-xl mt-3">
+                      <a
+                        href=""
+                        class="hover:bg-black3 hover:text-white transition-all duration-500 w-[43px] h-[43px] flex items-center justify-center"
+                      >
+                        <i class="fa-regular fa-heart"></i>
+                      </a>
+                      <a
+                        href=""
+                        class="flex-1 bg-black3 hover:bg-[#353434] text-center py-[6px] text-white uppercase"
+                      >
+                        <i class="fa-solid fa-bag-shopping mr-1"></i>
+                        <span class="text-[13px]">add to cart</span>
+                      </a>
+                      <a
+                        href=""
+                        class="hover:bg-black3 hover:text-white transition-all duration-500 w-[43px] h-[43px] flex items-center justify-center"
+                      >
+                        <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- grid product 4 -->
+              <div
+                class="hover:bg-white hover:drop-shadow-2xl hover:-translate-y-3 p-4 -mx-4 -mt-4 lg:-mb-40 hover:z-10 relative group transition-all duration-500"
+              >
+                <!-- product image -->
+                <div class="relative overflow-hidden cursor-pointer">
+                  <!-- main image -->
+                  <img
+                    src="assets/images/product-discount4.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="hover:opacity-0 transition-opacity duration-300"
+                  />
+                  <!-- hover image -->
+                  <img
+                    src="assets/images/product-discount4-h.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="absolute top-0 left-0 opacity-0 hover:opacity-[1] hover:scale-[1.15] transition-transform duration-[2s]"
+                  />
+                  <!-- hot & discount tag -->
+                  <div
+                    class="absolute top-2 left-2 font-medium flex flex-col gap-[5px]"
+                  >
+                    <div
+                      class="bg-green text-[11px] px-[10px] py-[2px] uppercase"
+                    >
+                      hot
+                    </div>
+                  </div>
+                </div>
+
+                <!-- product body -->
+                <div class="pt-4 text-[#494949]">
+                  <p class="text-[10px] uppercase text-gray6">
+                    <a href="/" class="hover:text-blue3">home & decor</a>,
+                    <a href="/" class="hover:text-blue3">fashion</a>,
+                    <a href="/" class="hover:text-blue3">sports</a>
+                  </p>
+                  <!-- title -->
+                  <a
+                    href="/"
+                    class="font-medium md:text-[15px] text-sm capitalize hover:text-blue3 cursor-pointer"
+                    >levoit HEPA air purifier</a
+                  >
+                  <!-- 5 star -->
+                  <p class="text-xs -tracking-[1.6px] my-[6px] text-black1">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                  </p>
+                  <h2 class="md:text-lg text-base font-semibold">
+                    $69.00 - $191.00
+                  </h2>
+                  <!-- hover visible -->
+                  <div class="py-2 hidden lg:group-hover:block">
+                    <p class="text-[13px] group-hover:text-gray6">
+                      Duis aute irure dolor in reprehenderit in voluptate velit
+                      esse cillum dolore eu fugiat nulla...
+                    </p>
+                    <!-- Wishlist, add to cart & details icons -->
+                    <div class="flex items-center gap-[5px] text-xl mt-3">
+                      <a
+                        href=""
+                        class="hover:bg-black3 hover:text-white transition-all duration-500 w-[43px] h-[43px] flex items-center justify-center"
+                      >
+                        <i class="fa-regular fa-heart"></i>
+                      </a>
+                      <a
+                        href=""
+                        class="flex-1 bg-black3 hover:bg-[#353434] text-center py-[6px] text-white uppercase"
+                      >
+                        <i class="fa-solid fa-bag-shopping mr-1"></i>
+                        <span class="text-[13px]">add to cart</span>
+                      </a>
+                      <a
+                        href=""
+                        class="hover:bg-black3 hover:text-white transition-all duration-500 w-[43px] h-[43px] flex items-center justify-center"
+                      >
+                        <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- grid product 5 -->
+              <div
+                class="hover:bg-white hover:drop-shadow-2xl hover:-translate-y-3 p-4 -m-4 lg:h-[33rem] lg:-mb-40 hover:z-10 relative group transition-all duration-500"
+              >
+                <!-- product image -->
+                <div class="relative overflow-hidden cursor-pointer">
+                  <!-- main image -->
+                  <img
+                    src="assets/images/product-discount5.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="hover:opacity-0 transition-opacity duration-300"
+                  />
+                  <!-- hover image -->
+                  <img
+                    src="assets/images/product-discount5-h.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="absolute top-0 left-0 opacity-0 hover:opacity-[1] hover:scale-[1.15] transition-transform duration-[2s]"
+                  />
+                  <!-- hot & discount tag -->
+                  <div
+                    class="absolute top-2 left-2 font-medium flex flex-col gap-[5px]"
+                  >
+                    <div
+                      class="bg-green text-[11px] px-[10px] py-[2px] uppercase"
+                    >
+                      hot
+                    </div>
+                    <div class="bg-coral text-[11px] px-[10px] py-[2px]">
+                      -8%
+                    </div>
+                  </div>
+                </div>
+
+                <!-- product body -->
+                <div class="pt-4 text-[#494949]">
+                  <p class="text-[10px] uppercase text-gray6">
+                    <a href="/" class="hover:text-blue3">appliances</a>,
+                    <a href="/" class="hover:text-blue3">tools</a>
+                  </p>
+                  <!-- title -->
+                  <a
+                    href="/"
+                    class="font-medium md:text-[15px] text-sm capitalize hover:text-blue3 cursor-pointer"
+                    >HP Desk jet ink 2774</a
+                  >
+                  <!-- 5 star -->
+                  <p class="text-xs -tracking-[1.6px] my-[6px] text-black1">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star text-gray6"></i>
+                  </p>
+                  <h2 class="md:text-lg text-base font-semibold">
+                    $28.00 - $29.00
+                  </h2>
+                  <!-- hover visible -->
+                  <div class="py-2 hidden lg:group-hover:block">
+                    <p class="text-[13px] group-hover:text-gray6">
+                      Duis aute irure dolor in reprehenderit in voluptate velit
+                      esse cillum dolore eu fugiat nulla...
+                    </p>
+                    <!-- Wishlist, add to cart & details icons -->
+                    <div class="flex items-center gap-[5px] text-xl mt-3">
+                      <a
+                        href=""
+                        class="hover:bg-black3 hover:text-white transition-all duration-500 w-[43px] h-[43px] flex items-center justify-center"
+                      >
+                        <i class="fa-regular fa-heart"></i>
+                      </a>
+                      <a
+                        href=""
+                        class="flex-1 bg-black3 hover:bg-[#353434] text-center py-[6px] text-white uppercase"
+                      >
+                        <i class="fa-solid fa-bag-shopping mr-1"></i>
+                        <span class="text-[13px]">add to cart</span>
+                      </a>
+                      <a
+                        href=""
+                        class="hover:bg-black3 hover:text-white transition-all duration-500 w-[43px] h-[43px] flex items-center justify-center"
+                      >
+                        <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- grid product 6 -->
+              <div
+                class="hover:bg-white hover:drop-shadow-2xl hover:-translate-y-3 p-4 -m-4 lg:-mb-40 hover:z-10 relative group transition-all duration-500"
+              >
+                <!-- product image -->
+                <div class="relative overflow-hidden cursor-pointer">
+                  <!-- main image -->
+                  <img
+                    src="assets/images/product-discount6.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="hover:opacity-0 transition-opacity duration-300"
+                  />
+                  <!-- hover image -->
+                  <img
+                    src="assets/images/product-discount6-h.jpg"
+                    alt=""
+                    loading="lazy"
+                    class="absolute top-0 left-0 opacity-0 hover:opacity-[1] hover:scale-[1.15] transition-transform duration-[2s]"
+                  />
+                  <!-- hot & discount tag -->
+                  <div
+                    class="absolute top-2 left-2 font-medium flex flex-col gap-[5px]"
+                  >
+                    <div
+                      class="bg-green text-[11px] px-[10px] py-[2px] uppercase"
+                    >
+                      hot
+                    </div>
+                  </div>
+                </div>
+
+                <!-- product body -->
+                <div class="pt-4 text-[#494949]">
+                  <p class="text-[10px] uppercase text-gray6">
+                    <a href="/" class="hover:text-blue3">appliances</a>,
+                    <a href="/" class="hover:text-blue3">electronices</a>
+                  </p>
+                  <!-- title -->
+                  <a
+                    href="/"
+                    class="font-medium md:text-[15px] text-sm capitalize hover:text-blue3 cursor-pointer"
+                    >corsair h55 CPU cooler</a
+                  >
+                  <!-- 5 star -->
+                  <p class="text-xs -tracking-[1.6px] my-[6px] text-black1">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                  </p>
+                  <h2 class="md:text-lg text-base font-semibold">
+                    <span class="line-through text-sm">$89.00</span> $70.00
+                  </h2>
+                  <!-- hover visible -->
+                  <div class="py-2 hidden lg:group-hover:block">
+                    <p class="text-[13px] group-hover:text-gray6">
+                      Duis aute irure dolor in reprehenderit in voluptate velit
+                      esse cillum dolore eu fugiat nulla...
+                    </p>
+                    <!-- Wishlist, add to cart & details icons -->
+                    <div class="flex items-center gap-[5px] text-xl mt-3">
+                      <a
+                        href=""
+                        class="hover:bg-black3 hover:text-white transition-all duration-500 w-[43px] h-[43px] flex items-center justify-center"
+                      >
+                        <i class="fa-regular fa-heart"></i>
+                      </a>
+                      <a
+                        href=""
+                        class="flex-1 bg-black3 hover:bg-[#353434] text-center py-[6px] text-white uppercase"
+                      >
+                        <i class="fa-solid fa-bag-shopping mr-1"></i>
+                        <span class="text-[13px]">add to cart</span>
+                      </a>
+                      <a
+                        href=""
+                        class="hover:bg-black3 hover:text-white transition-all duration-500 w-[43px] h-[43px] flex items-center justify-center"
+                      >
+                        <i class="fa-solid fa-arrow-right-long"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- grid mini card -->
+          <div
+            class="basis-[27%] lg:grid hidden gap-y-4 grid-cols-1 grid-rows-4"
+          >
+            <!-- grid card 1 -->
+            <div
+              class="bg-center bg-[url('../../assets/images/grid-banner-bg-img1.jpg')] bg-cover rounded-xl text-blue4"
+            >
+              <a href="/" class="card-btn block w-full h-full px-7 pt-8">
+                <h1 class="text-xl font-bold capitalize max-w-36 mb-4">
+                  Level up his game
+                </h1>
+                <!-- card button -->
+                <div class="flex items-center gap-2 text-[13px] group relative">
+                  <span class="font-semibold">Shop sports</span>
+                  <div
+                    class="card-icon bg-blue4 text-white w-5 h-5 rounded-full flex items-center justify-center transition-all duration-300"
+                  >
+                    <i class="fa-solid fa-angle-right"></i>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <!-- grid card 2 -->
+            <div
+              class="row-span-2 bg-center bg-[url('../../assets/images/grid-banner-bg-img3.jpg')] bg-cover rounded-xl text-blue4"
+            >
+              <a href="/" class="card-btn block w-full h-full px-7 pt-8">
+                <h1 class="text-xl font-bold capitalize max-w-36 mb-4">
+                  Level up his game
+                </h1>
+                <!-- card button -->
+                <div class="flex items-center gap-2 text-[13px] group relative">
+                  <span class="font-semibold">Shop Now</span>
+                  <div
+                    class="card-icon bg-blue4 text-white w-5 h-5 rounded-full flex items-center justify-center transition-all duration-300"
+                  >
+                    <i class="fa-solid fa-angle-right"></i>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <!-- grid card 3 -->
+            <div
+              class="bg-center bg-[url('../../assets/images/grid-banner-bg-img2.jpg')] bg-cover rounded-xl text-blue4"
+            >
+              <a href="/" class="card-btn block w-full h-full px-7 pt-8">
+                <h1 class="text-xl font-bold capitalize max-w-36 mb-4">
+                  For the DIY guy
+                </h1>
+                <!-- card button -->
+                <div class="flex items-center gap-2 text-[13px] group relative">
+                  <span class="font-semibold">Shop tools</span>
+                  <div
+                    class="card-icon bg-blue4 text-white w-5 h-5 rounded-full flex items-center justify-center transition-all duration-300"
+                  >
+                    <i class="fa-solid fa-angle-right"></i>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- miduam banner section -->
+      <section class="container py-8">
+        <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
+          <!-- grid banner 1 -->
+          <div class="bg-yellow3 rounded-xl relative pt-36 pb-8 px-8">
+            <!-- banner img -->
+            <img
+              src="assets/images/mid-banner-1.jpg"
+              alt="home refresh new ideas"
+              loading="lazy"
+              class="absolute top-0 right-0 rounded-tr-xl rounded-bl-[50%] w-[190px]"
+            />
+            <!-- banner title -->
+            <h1
+              class="lg:text-4xl text-[28px] font-bold text-black3 leading-tight mb-8 capitalize"
+            >
+              home<br />refresh<br />new ideas
+            </h1>
+            <div class="flex justify-between">
+              <p class="capitalize tracking-widest text-black3">new arrivals</p>
+              <!-- banner btn -->
+              <a
+                href="/"
+                class="mid-banner-btn flex items-center gap-2 text-sm"
+              >
+                <span class="font-semibold text-black3">Shop Now</span>
+                <div
+                  class="bg-black3 text-white w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300"
+                >
+                  <i class="fa-solid fa-angle-right"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+          <!-- grid banner 2 -->
+          <div class="bg-blue3 text-white rounded-xl relative pt-36 pb-8 px-8">
+            <!-- banner img -->
+            <img
+              src="assets/images/mid-banner-2.jpg"
+              alt="home refresh new ideas"
+              loading="lazy"
+              class="absolute top-0 right-0 rounded-tr-xl rounded-bl-[50%] w-[190px]"
+            />
+            <!-- banner title -->
+            <h1
+              class="lg:text-4xl text-[28px] font-bold leading-tight mb-8 capitalize"
+            >
+              shop<br />modern<br />products
+            </h1>
+            <div class="flex justify-between">
+              <p class="capitalize tracking-widest">new arrivals</p>
+              <!-- banner btn -->
+              <a
+                href="/"
+                class="mid-banner-btn flex items-center gap-2 text-sm"
+              >
+                <span class="font-semibold">Shop Now</span>
+                <div
+                  class="bg-white text-black3 w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300"
+                >
+                  <i class="fa-solid fa-angle-right"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+          <!-- grid banner 3 -->
+          <div class="bg-gray3 rounded-xl relative pt-36 pb-8 px-8">
+            <!-- banner img -->
+            <img
+              src="assets/images/mid-banner-3.jpg"
+              alt="home refresh new ideas"
+              loading="lazy"
+              class="absolute top-0 right-0 rounded-tr-xl rounded-bl-[50%] w-[190px]"
+            />
+            <!-- banner title -->
+            <h1
+              class="lg:text-4xl text-[28px] font-bold text-black3 leading-tight mb-8 capitalize"
+            >
+              best<br />deals in<br />Fashionable
+            </h1>
+            <div class="flex justify-between">
+              <p class="capitalize tracking-widest text-black3">new arrivals</p>
+              <!-- banner btn -->
+              <a
+                href="/"
+                class="mid-banner-btn flex items-center gap-2 text-sm"
+              >
+                <span class="font-semibold text-black3">Shop Now</span>
+                <div
+                  class="bg-yellow3 text-black3 w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300"
+                >
+                  <i class="fa-solid fa-angle-right"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- product track 1 -->
+      <section class="container py-8">
+        <swiper-container class="mySwiper" init="false" id="product-track1">
+          <!-- product item 1 -->
+          <swiper-slide>
+            <!-- product image -->
+            <div class="relative overflow-hidden cursor-pointer">
+              <!-- main image -->
+              <img
+                src="assets/images/product-track1-img1.jpg"
+                alt=""
+                loading="lazy"
+                class="hover:opacity-0 transition-opacity duration-300"
+              />
+              <!-- hover image -->
+              <img
+                src="assets/images/product-track1-img1-h.jpg"
+                alt=""
+                loading="lazy"
+                class="absolute top-0 left-0 opacity-0 hover:opacity-[1] hover:scale-[1.15] transition-transform duration-[2s]"
+              />
+            </div>
+            <!-- product body -->
+            <div class="py-4">
+              <p class="text-[10px] text-black1 uppercase">
+                <a href="/" class="hover:text-blue3">electronics</a>
+              </p>
+              <a
+                href="/"
+                class="font-medium text-[15px] capitalize text-black3 hover:text-blue3 cursor-pointer"
+                >honor tablet v7 pro</a
+              >
+              <p class="text-black3 text-xs -tracking-[1.8px] my-[6px]">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </p>
+              <h2 class="text-lg font-semibold text-black2">$104.00</h2>
+            </div>
+          </swiper-slide>
+          <!-- product item 2 -->
+          <swiper-slide>
+            <!-- product image -->
+            <div class="relative overflow-hidden cursor-pointer">
+              <!-- main image -->
+              <img
+                src="assets/images/product-track1-img2.jpg"
+                alt=""
+                loading="lazy"
+                class="hover:opacity-0 transition-opacity duration-300"
+              />
+              <!-- hover image -->
+              <img
+                src="assets/images/product-track1-img2-h.jpg"
+                alt=""
+                loading="lazy"
+                class="absolute top-0 left-0 opacity-0 hover:opacity-[1] hover:scale-[1.15] transition-transform duration-[2s]"
+              />
+            </div>
+            <!-- product body -->
+            <div class="py-4">
+              <p class="text-[10px] text-black1 uppercase">
+                <a href="/" class="hover:text-blue3">appliances</a>,
+                <a href="/" class="hover:text-blue3">home & decor</a>
+              </p>
+              <a
+                href="/"
+                class="font-medium text-[15px] capitalize text-black3 hover:text-blue3 cursor-pointer"
+                >electric oil heater</a
+              >
+              <p class="text-black3 text-xs -tracking-[1.8px] my-[6px]">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star text-black1"></i>
+              </p>
+              <h2 class="text-lg font-semibold text-black2">$69.00</h2>
+            </div>
+          </swiper-slide>
+          <!-- product item 3 -->
+          <swiper-slide>
+            <!-- product image -->
+            <div class="relative overflow-hidden cursor-pointer">
+              <!-- main image -->
+              <img
+                src="assets/images/product-track1-img3.jpg"
+                alt=""
+                loading="lazy"
+                class="hover:opacity-0 transition-opacity duration-300"
+              />
+              <!-- hover image -->
+              <img
+                src="assets/images/product-track1-img3-h.jpg"
+                alt=""
+                loading="lazy"
+                class="absolute top-0 left-0 opacity-0 hover:opacity-[1] hover:scale-[1.15] transition-transform duration-[2s]"
+              />
+            </div>
+            <!-- product body -->
+            <div class="py-4">
+              <p class="text-[10px] text-black1 uppercase">
+                <a href="/" class="hover:text-blue3">electronics</a>
+              </p>
+              <a
+                href="/"
+                class="font-medium text-[15px] capitalize text-black3 hover:text-blue3 cursor-pointer"
+                >gaming PC case</a
+              >
+              <p class="text-black3 text-xs -tracking-[1.8px] my-[6px]">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </p>
+              <h2 class="text-lg font-semibold text-black2">
+                $89.00 - $199.00
+              </h2>
+            </div>
+          </swiper-slide>
+          <!-- product item 4 -->
+          <swiper-slide>
+            <!-- product image -->
+            <div class="relative overflow-hidden cursor-pointer">
+              <!-- main image -->
+              <img
+                src="assets/images/product-track1-img4.jpg"
+                alt=""
+                loading="lazy"
+                class="hover:opacity-0 transition-opacity duration-300"
+              />
+              <!-- hover image -->
+              <img
+                src="assets/images/product-track1-img4-h.jpg"
+                alt=""
+                loading="lazy"
+                class="absolute top-0 left-0 opacity-0 hover:opacity-[1] hover:scale-[1.15] transition-transform duration-[2s]"
+              />
+            </div>
+            <!-- product body -->
+            <div class="py-4">
+              <p class="text-[10px] text-black1 uppercase">
+                <a href="/" class="hover:text-blue3">tables & desks</a>,
+                <a href="/" class="hover:text-blue3">home & deco</a>
+              </p>
+              <a
+                href="/"
+                class="font-medium text-[15px] capitalize text-black3 hover:text-blue3 cursor-pointer"
+                >washing machines</a
+              >
+              <p class="text-black3 text-xs -tracking-[1.8px] my-[6px]">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </p>
+              <h2 class="text-lg font-semibold text-black2">$99.00</h2>
+            </div>
+          </swiper-slide>
+          <!-- product item 5 -->
+          <swiper-slide>
+            <!-- product image -->
+            <div class="relative overflow-hidden cursor-pointer">
+              <!-- main image -->
+              <img
+                src="assets/images/product-track1-img5.jpg"
+                alt=""
+                loading="lazy"
+                class="hover:opacity-0 transition-opacity duration-300"
+              />
+              <!-- hover image -->
+              <img
+                src="assets/images/product-track1-img5-h.jpg"
+                alt=""
+                loading="lazy"
+                class="absolute top-0 left-0 opacity-0 hover:opacity-[1] hover:scale-[1.15] transition-transform duration-[2s]"
+              />
+            </div>
+            <!-- product body -->
+            <div class="py-4">
+              <p class="text-[10px] text-black1 uppercase">
+                <a href="/" class="hover:text-blue3">table & desks</a>,
+                <a href="/" class="hover:text-blue3">fashion</a>
+              </p>
+              <a
+                href="/"
+                class="font-medium text-[15px] capitalize text-black3 hover:text-blue3 cursor-pointer"
+                >blue leather office chair</a
+              >
+              <p class="text-black3 text-xs -tracking-[1.8px] my-[6px]">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star text-black1"></i>
+              </p>
+              <h2 class="md:text-lg text-base font-semibold text-black3">
+                <span class="line-through text-sm">$88.00</span> $72.00
+              </h2>
+            </div>
+          </swiper-slide>
+          <!-- product item 6 -->
+          <swiper-slide>
+            <!-- product image -->
+            <div class="relative overflow-hidden cursor-pointer">
+              <!-- main image -->
+              <img
+                src="assets/images/product-track1-img6.jpg"
+                alt=""
+                loading="lazy"
+                class="hover:opacity-0 transition-opacity duration-300"
+              />
+              <!-- hover image -->
+              <img
+                src="assets/images/product-track1-img6-h.jpg"
+                alt=""
+                loading="lazy"
+                class="absolute top-0 left-0 opacity-0 hover:opacity-[1] hover:scale-[1.15] transition-transform duration-[2s]"
+              />
+            </div>
+            <!-- product body -->
+            <div class="py-4">
+              <p class="text-[10px] text-black1 uppercase">
+                <a href="/" class="hover:text-blue3">electronics</a>,
+                <a href="/" class="hover:text-blue3">home & decor</a>
+              </p>
+              <a
+                href="/"
+                class="font-medium text-[15px] capitalize text-black3 hover:text-blue3 cursor-pointer"
+                >smart home security camera</a
+              >
+              <p class="text-black3 text-xs -tracking-[1.8px] my-[6px]">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star text-black1"></i>
+              </p>
+              <h2 class="text-lg font-semibold text-black2">
+                $890.00 - $910.00
+              </h2>
+            </div>
+          </swiper-slide>
+        </swiper-container>
+      </section>
+      <!-- large banner -->
+      <section class="container">
+        <div class="border-b pb-16">
+          <div
+            class="bg-[url('../../assets/images/large-banner.jpg')] bg-center bg-cover flex justify-end md:py-12 py-6 px-6 rounded-xl"
+          >
+            <div
+              class="lg:basis-7/12 md:basis-8/12 sm:basis-10/12 basis-full flex flex-col sm:items-center items-end md:text-center text-right"
+            >
+              <p class="text-black3 tracking-widest">New Arrivals</p>
+              <h1
+                class="lg:text-2xl sm:text-[24px] text-xl font-bold text-black3 max-w-44 sm:max-w-full"
+              >
+                Best Deals For an Amazing Kitchen
+              </h1>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- product track 2 -->
+      <section class="container py-8">
+        <swiper-container class="mySwiper" init="false" id="product-track2">
+          <!-- product item 1 -->
+          <swiper-slide>
+            <!-- product image -->
+            <div class="relative overflow-hidden cursor-pointer">
+              <!-- main image -->
+              <img
+                src="assets/images/product-track2-img1.jpg"
+                alt=""
+                loading="lazy"
+                class="hover:opacity-0 transition-opacity duration-300"
+              />
+              <!-- hover image -->
+              <img
+                src="assets/images/product-track2-img1-h.jpg"
+                alt=""
+                loading="lazy"
+                class="absolute top-0 left-0 opacity-0 hover:opacity-[1] hover:scale-[1.15] transition-transform duration-[2s]"
+              />
+            </div>
+            <!-- product body -->
+            <div class="py-4">
+              <p class="text-[10px] text-black1 uppercase">
+                <a href="/" class="hover:text-blue3">electronics</a>,
+                <a href="/" class="hover:text-blue3">tools</a>
+              </p>
+              <a
+                href="/"
+                class="font-medium text-[15px] capitalize text-black3 hover:text-blue3 cursor-pointer"
+                >usb expander for laptop</a
+              >
+              <p class="text-black3 text-xs -tracking-[1.8px] my-[6px]">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star text-black1"></i>
+              </p>
+              <h2 class="text-lg font-semibold text-black2">$14.00</h2>
+            </div>
+          </swiper-slide>
+          <!-- product item 2 -->
+          <swiper-slide>
+            <!-- product image -->
+            <div class="relative overflow-hidden cursor-pointer">
+              <!-- main image -->
+              <img
+                src="assets/images/product-track2-img2.jpg"
+                alt=""
+                loading="lazy"
+                class="hover:opacity-0 transition-opacity duration-300"
+              />
+              <!-- hover image -->
+              <img
+                src="assets/images/product-track2-img2-h.jpg"
+                alt=""
+                loading="lazy"
+                class="absolute top-0 left-0 opacity-0 hover:opacity-[1] hover:scale-[1.15] transition-transform duration-[2s]"
+              />
+            </div>
+            <!-- product body -->
+            <div class="py-4">
+              <p class="text-[10px] text-black1 uppercase">
+                <a href="/" class="hover:text-blue3">fashion</a>,
+                <a href="/" class="hover:text-blue3">home & decor</a>,
+                <a href="/" class="hover:text-blue3">tables & desks</a>
+              </p>
+              <a
+                href="/"
+                class="font-medium text-[15px] capitalize text-black3 hover:text-blue3 cursor-pointer"
+                >height adjustable desk</a
+              >
+              <p class="text-black3 text-xs -tracking-[1.8px] my-[6px]">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star text-black1"></i>
+              </p>
+              <h2 class="text-lg font-semibold text-black2">$53.00</h2>
+            </div>
+          </swiper-slide>
+          <!-- product item 3 -->
+          <swiper-slide>
+            <!-- product image -->
+            <div class="relative overflow-hidden cursor-pointer">
+              <!-- main image -->
+              <img
+                src="assets/images/product-track2-img3.jpg"
+                alt=""
+                loading="lazy"
+                class="hover:opacity-0 transition-opacity duration-300"
+              />
+              <!-- hover image -->
+              <img
+                src="assets/images/product-track2-img3-h.jpg"
+                alt=""
+                loading="lazy"
+                class="absolute top-0 left-0 opacity-0 hover:opacity-[1] hover:scale-[1.15] transition-transform duration-[2s]"
+              />
+            </div>
+            <!-- product body -->
+            <div class="py-4">
+              <p class="text-[10px] text-black1 uppercase">
+                <a href="/" class="hover:text-blue3">fashion</a>,
+                <a href="/" class="hover:text-blue3">home & decor</a>,
+                <a href="/" class="hover:text-blue3">sports</a>,
+                <a href="/" class="hover:text-blue3">tables..</a>
+              </p>
+              <a
+                href="/"
+                class="font-medium text-[15px] capitalize text-black3 hover:text-blue3 cursor-pointer"
+                >coco club chair</a
+              >
+              <p class="text-black3 text-xs -tracking-[1.8px] my-[6px]">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star text-black1"></i>
+              </p>
+              <h2 class="text-lg font-semibold text-black2">$289.00</h2>
+            </div>
+          </swiper-slide>
+          <!-- product item 4 -->
+          <swiper-slide>
+            <!-- product image -->
+            <div class="relative overflow-hidden cursor-pointer">
+              <!-- main image -->
+              <img
+                src="assets/images/product-track2-img4.jpg"
+                alt=""
+                loading="lazy"
+                class="hover:opacity-0 transition-opacity duration-300"
+              />
+              <!-- hover image -->
+              <img
+                src="assets/images/product-track2-img4-h.jpg"
+                alt=""
+                loading="lazy"
+                class="absolute top-0 left-0 opacity-0 hover:opacity-[1] hover:scale-[1.15] transition-transform duration-[2s]"
+              />
+            </div>
+            <!-- product body -->
+            <div class="py-4">
+              <p class="text-[10px] text-black1 uppercase">
+                <a href="/" class="hover:text-blue3">appliances</a>,
+                <a href="/" class="hover:text-blue3">electronics</a>,
+                <a href="/" class="hover:text-blue3">home & deco...</a>
+              </p>
+              <a
+                href="/"
+                class="font-medium text-[15px] capitalize text-black3 hover:text-blue3 cursor-pointer"
+                >washing machines</a
+              >
+              <p class="text-black3 text-xs -tracking-[1.8px] my-[6px]">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star text-black1"></i>
+              </p>
+              <h2 class="text-lg font-semibold text-black2">$200.00</h2>
+            </div>
+          </swiper-slide>
+          <!-- product item 5 -->
+          <swiper-slide>
+            <!-- product image -->
+            <div class="relative overflow-hidden cursor-pointer">
+              <!-- main image -->
+              <img
+                src="assets/images/product-track2-img5.jpg"
+                alt=""
+                loading="lazy"
+                class="hover:opacity-0 transition-opacity duration-300"
+              />
+              <!-- hover image -->
+              <img
+                src="assets/images/product-track2-img5-h.jpg"
+                alt=""
+                loading="lazy"
+                class="absolute top-0 left-0 opacity-0 hover:opacity-[1] hover:scale-[1.15] transition-transform duration-[2s]"
+              />
+            </div>
+            <!-- product body -->
+            <div class="py-4">
+              <p class="text-[10px] text-black1 uppercase">
+                <a href="/" class="hover:text-blue3">electronics</a>,
+                <a href="/" class="hover:text-blue3">fashion</a>,
+                <a href="/" class="hover:text-blue3">kitchen</a>,
+                <a href="/" class="hover:text-blue3">storag...</a>
+              </p>
+              <a
+                href="/"
+                class="font-medium text-[15px] capitalize text-black3 hover:text-blue3 cursor-pointer"
+                >stainless steel electric kettle</a
+              >
+              <p class="text-black3 text-xs -tracking-[1.8px] my-[6px]">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </p>
+              <h2 class="text-lg font-semibold text-black2">$120.00</h2>
+            </div>
+          </swiper-slide>
+          <!-- product item 6 -->
+          <swiper-slide>
+            <!-- product image -->
+            <div class="relative overflow-hidden cursor-pointer">
+              <!-- main image -->
+              <img
+                src="assets/images/product-track2-img6.jpg"
+                alt=""
+                loading="lazy"
+                class="hover:opacity-0 transition-opacity duration-300"
+              />
+              <!-- hover image -->
+              <img
+                src="assets/images/product-track2-img6-h.jpg"
+                alt=""
+                loading="lazy"
+                class="absolute top-0 left-0 opacity-0 hover:opacity-[1] hover:scale-[1.15] transition-transform duration-[2s]"
+              />
+            </div>
+            <!-- product body -->
+            <div class="py-4">
+              <p class="text-[10px] text-black1 uppercase">
+                <a href="/" class="hover:text-blue3">home & decor</a>,
+                <a href="/" class="hover:text-blue3">lighting</a>,
+                <a href="/" class="hover:text-blue3">tables & desks</a>
+              </p>
+              <a
+                href="/"
+                class="font-medium text-[15px] capitalize text-black3 hover:text-blue3 cursor-pointer"
+                >CIMOTA armchair</a
+              >
+              <p class="text-black3 text-xs -tracking-[1.8px] my-[6px]">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star text-black1"></i>
+              </p>
+              <h2 class="text-lg font-semibold text-black2">$80.00 - $89.00</h2>
+            </div>
+          </swiper-slide>
+        </swiper-container>
+      </section>
+      <!-- trending brands section -->
+      <section class="container pt-5 pb-14">
+        <h1 class="lg:text-2xl text-[24px] font-bold text-black3 capitalize">
+          Trending Brands
+        </h1>
+        <div class="grid lg:grid-cols-6 sm:grid-cols-3 grid-cols-2 mt-12 gap-4">
+          <div class="flex justify-center">
+            <img src="assets/images/brand-1.png" alt="" loading="lazy" />
+          </div>
+          <div class="flex justify-center">
+            <img src="assets/images/brand-2.png" alt="" loading="lazy" />
+          </div>
+          <div class="flex justify-center">
+            <img src="assets/images/brand-3.png" alt="" loading="lazy" />
+          </div>
+          <div class="flex justify-center">
+            <img src="assets/images/brand-4.png" alt="" loading="lazy" />
+          </div>
+          <div class="flex justify-center">
+            <img src="assets/images/brand-5.png" alt="" loading="lazy" />
+          </div>
+          <div class="flex justify-center">
+            <img src="assets/images/brand-6.png" alt="" loading="lazy" />
+          </div>
+        </div>
+      </section>
+      <!-- discount Big Sale, ends soon section -->
+      <section class="bg-blue2 text-white">
+        <div class="container pt-[3.8rem] pb-[3.2rem]">
+          <div class="flex flex-col lg:flex-row gap-10">
+            <!-- text---title text -->
+            <div class="basis-[22%]">
+              <h1
+                class="text-3xl leading-normal font-bold max-w-60 lg:max-w-full"
+              >
+                Essential Tools To Renew With PayPi Products
+              </h1>
+              <p class="tracking-[3px] font-light text-[15px] mt-5 mb-7">
+                Big Sale, ends soon!
+              </p>
+              <p
+                class="text-[10px] font-extralight tracking-[1.8px] text-blue-200"
+              >
+                Viewing essential tools available
+              </p>
+            </div>
+            <div class="basis-[78%]">
+              <!-- discount card grid -->
+              <div
+                class="grid sm:grid-cols-3 grid-cols-2 gap-x-4 gap-y-10 pt-4"
+              >
+                <!-- grid product 1 -->
+                <div
+                  class="hover:bg-white hover:-translate-y-3 p-4 -m-4 relative group transition-all duration-500"
+                >
+                  <!-- product image -->
+                  <div class="relative overflow-hidden cursor-pointer">
+                    <!-- main image -->
+                    <img
+                      src="assets/images/big-sale-img1.jpg"
+                      alt=""
+                      loading="lazy"
+                      class="hover:opacity-0 transition-opacity duration-300"
+                    />
+                    <!-- hover image -->
+                    <img
+                      src="assets/images/big-sale-img1-h.jpg"
+                      alt=""
+                      loading="lazy"
+                      class="absolute top-0 left-0 opacity-0 hover:opacity-[1] hover:scale-[1.15] transition-transform duration-[2s]"
+                    />
+                    <!-- hot & discount tag -->
+                    <div
+                      class="absolute top-2 left-2 font-medium flex flex-col gap-[5px]"
+                    >
+                      <div
+                        class="bg-green text-[11px] px-[10px] py-[2px] uppercase"
+                      >
+                        hot
+                      </div>
+                      <div class="bg-coral text-[11px] px-[10px] py-[2px]">
+                        -11%
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- product body -->
+                  <div class="pt-4 group-hover:text-[#494949]">
+                    <p class="text-[10px] uppercase group-hover:text-gray6">
+                      <a href="/" class="hover:text-blue3">electronics</a>,
+                      <a href="/" class="hover:text-blue3">home & decor</a>
+                    </p>
+                    <!-- title -->
+                    <a
+                      href="/"
+                      class="font-medium md:text-[15px] text-sm capitalize hover:text-blue3 cursor-pointer"
+                      >smart home security camera</a
+                    >
+                    <!-- 5 star -->
+                    <p
+                      class="text-xs -tracking-[1.6px] my-[6px] group-hover:text-black1"
+                    >
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i
+                        class="fa-solid fa-star text-blue1 group-hover:text-gray6"
+                      ></i>
+                    </p>
+                    <h2 class="md:text-lg text-base font-semibold">
+                      $890.00 - $910.00
+                    </h2>
+                    <!-- hover visible -->
+                    <div class="py-2 hidden lg:group-hover:block">
+                      <p class="text-[13px] group-hover:text-gray6">
+                        Duis aute irure dolor in reprehenderit in voluptate
+                        velit esse cillum dolore eu fugiat nulla...
+                      </p>
+                      <!-- Wishlist, add to cart & details icons -->
+                      <div class="flex items-center gap-[5px] text-xl mt-3">
+                        <a
+                          href=""
+                          class="hover:bg-black3 hover:text-white transition-all duration-500 w-[43px] h-[43px] flex items-center justify-center"
+                        >
+                          <i class="fa-regular fa-heart"></i>
+                        </a>
+                        <a
+                          href=""
+                          class="flex-1 bg-black3 hover:bg-[#353434] text-center py-[6px] text-white uppercase"
+                        >
+                          <i class="fa-solid fa-bag-shopping mr-1"></i>
+                          <span class="text-[13px]">add to cart</span>
+                        </a>
+                        <a
+                          href=""
+                          class="hover:bg-black3 hover:text-white transition-all duration-500 w-[43px] h-[43px] flex items-center justify-center"
+                        >
+                          <i class="fa-solid fa-arrow-right-long"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- grid product 2 -->
+                <div
+                  class="hover:bg-white hover:-translate-y-3 p-4 -m-4 relative group transition-all duration-500"
+                >
+                  <!-- product image -->
+                  <div class="relative overflow-hidden cursor-pointer">
+                    <!-- main image -->
+                    <img
+                      src="assets/images/big-sale-img2.jpg"
+                      alt=""
+                      loading="lazy"
+                      class="hover:opacity-0 transition-opacity duration-300"
+                    />
+                    <!-- hover image -->
+                    <img
+                      src="assets/images/big-sale-img2-h.jpg"
+                      alt=""
+                      loading="lazy"
+                      class="absolute top-0 left-0 opacity-0 hover:opacity-[1] hover:scale-[1.15] transition-transform duration-[2s]"
+                    />
+                    <!-- hot & discount tag -->
+                    <div
+                      class="absolute top-2 left-2 font-medium flex flex-col gap-[5px]"
+                    >
+                      <div class="bg-coral text-[11px] px-[10px] py-[2px]">
+                        -11%
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- product body -->
+                  <div class="pt-4 group-hover:text-[#494949]">
+                    <p class="text-[10px] uppercase group-hover:text-gray6">
+                      <a href="/" class="hover:text-blue3">tools</a>
+                    </p>
+                    <a
+                      href="/"
+                      class="font-medium md:text-[15px] text-sm capitalize hover:text-blue3 cursor-pointer"
+                      >wellieSTR 13 pen knife</a
+                    >
+                    <!-- 5 star -->
+                    <p
+                      class="text-xs -tracking-[1.6px] my-[6px] group-hover:text-black1"
+                    >
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i
+                        class="fa-solid fa-star text-blue1 group-hover:text-gray6"
+                      ></i>
+                    </p>
+                    <h2 class="md:text-lg text-base font-semibold">
+                      <span class="line-through text-sm">$900.00</span> $820.00
+                    </h2>
+                    <!-- hover visible -->
+                    <div class="py-2 hidden lg:group-hover:block">
+                      <p class="text-[13px] group-hover:text-gray6">
+                        Duis aute irure dolor in reprehenderit in voluptate
+                        velit esse cillum dolore eu fugiat nulla...
+                      </p>
+                      <!-- Wishlist, add to cart & details icons -->
+                      <div class="flex items-center gap-[5px] text-xl mt-3">
+                        <a
+                          href=""
+                          class="hover:bg-black3 hover:text-white transition-all duration-500 w-[43px] h-[43px] flex items-center justify-center"
+                        >
+                          <i class="fa-regular fa-heart"></i>
+                        </a>
+                        <a
+                          href=""
+                          class="flex-1 bg-black3 hover:bg-[#353434] text-center py-[6px] text-white uppercase"
+                        >
+                          <i class="fa-solid fa-bag-shopping mr-1"></i>
+                          <span class="text-[13px]">add to cart</span>
+                        </a>
+                        <a
+                          href=""
+                          class="hover:bg-black3 hover:text-white transition-all duration-500 w-[43px] h-[43px] flex items-center justify-center"
+                        >
+                          <i class="fa-solid fa-arrow-right-long"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- grid product 3 -->
+                <div
+                  class="hover:bg-white hover:-translate-y-3 p-4 -m-4 relative group transition-all duration-500"
+                >
+                  <!-- product image -->
+                  <div class="relative overflow-hidden cursor-pointer">
+                    <!-- main image -->
+                    <img
+                      src="assets/images/big-sale-img3.jpg"
+                      alt=""
+                      loading="lazy"
+                      class="hover:opacity-0 transition-opacity duration-300"
+                    />
+                    <!-- hover image -->
+                    <img
+                      src="assets/images/big-sale-img3-h.jpg"
+                      alt=""
+                      loading="lazy"
+                      class="absolute top-0 left-0 opacity-0 hover:opacity-[1] hover:scale-[1.15] transition-transform duration-[2s]"
+                    />
+                    <!-- hot & discount tag -->
+                    <div
+                      class="absolute top-2 left-2 font-medium flex flex-col gap-[5px]"
+                    >
+                      <div
+                        class="bg-green text-[11px] px-[10px] py-[2px] uppercase"
+                      >
+                        hot
+                      </div>
+                      <div class="bg-coral text-[11px] px-[10px] py-[2px]">
+                        -11%
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- product body -->
+                  <div class="pt-4 group-hover:text-[#494949]">
+                    <p class="text-[10px] uppercase group-hover:text-gray6">
+                      <a href="/" class="hover:text-blue3">appliances</a>,
+                      <a href="/" class="hover:text-blue3">electronics</a>,
+                      <a href="/" class="hover:text-blue3">kitchen</a>
+                    </p>
+                    <a
+                      href="/"
+                      class="font-medium md:text-[15px] text-sm capitalize hover:text-blue3 cursor-pointer"
+                      >defective door refrigerator</a
+                    >
+                    <!-- 5 star -->
+                    <p
+                      class="text-xs -tracking-[1.6px] my-[6px] group-hover:text-black1"
+                    >
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i
+                        class="fa-solid fa-star text-blue1 group-hover:text-gray6"
+                      ></i>
+                    </p>
+                    <h2 class="md:text-lg text-base font-semibold">
+                      $690.00 - $710.00
+                    </h2>
+                    <!-- hover visible -->
+                    <div class="py-2 invisible lg:group-hover:visible">
+                      <p class="text-[13px] group-hover:text-gray6">
+                        Duis aute irure dolor in reprehenderit in voluptate
+                        velit esse cillum dolore eu fugiat nulla...
+                      </p>
+                      <!-- Wishlist, add to cart & details icons -->
+                      <div class="flex items-center gap-[5px] text-xl mt-3">
+                        <a
+                          href=""
+                          class="hover:bg-black3 hover:text-white transition-all duration-500 w-[43px] h-[43px] flex items-center justify-center"
+                        >
+                          <i class="fa-regular fa-heart"></i>
+                        </a>
+                        <a
+                          href=""
+                          class="flex-1 bg-black3 hover:bg-[#353434] text-center py-[6px] text-white uppercase"
+                        >
+                          <i class="fa-solid fa-bag-shopping mr-1"></i>
+                          <span class="text-[13px]">add to cart</span>
+                        </a>
+                        <a
+                          href=""
+                          class="hover:bg-black3 hover:text-white transition-all duration-500 w-[43px] h-[43px] flex items-center justify-center"
+                        >
+                          <i class="fa-solid fa-arrow-right-long"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="text-center -mt-28 sm:-mt-24 md:-mt-0">
+                <a
+                  href=""
+                  class="capitalize font-bold py-4 md:px-28 px-20 bg-black3 rounded-lg hover:bg-[#2c2c2c]"
+                  >load more...</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- blogs section -->
+      <section class="container py-12">
+        <h1 class="capitalize text-2xl text-black3 font-bold mb-5">
+          latest posts
+        </h1>
+        <div class="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5">
+          <!-- grid blog 1 -->
+          <div>
+            <!-- blog img -->
+            <div class="blog-img cursor-pointer overflow-hidden">
+              <figure>
+                <img src="assets/images/blog-img1.jpg" alt="" loading="lazy" />
+              </figure>
+            </div>
+            <!-- blog body -->
+            <div class="py-4">
+              <!-- blog date & mini-link -->
+              <div class="flex justify-between">
+                <p class="text-[10px] text-black1">
+                  <a href="/" class="hover:text-blue3"> Bag</a>,
+                  <a href="/" class="hover:text-blue3"> Fashion</a>,
+                  <a href="/" class="hover:text-blue3"> Markup</a>,
+                  <a href="/" class="hover:text-blue3"> Media</a>
+                </p>
+                <p class="text-[10px] text-black1">September 6, 2023</p>
+              </div>
+              <!-- blog title -->
+              <a
+                href="/"
+                class="text-black3 hover:text-blue3 font-bold tracking-tight"
+                >Post Format Image</a
+              >
+              <!-- blog discription -->
+              <p class="text-sm leading-[1.7] text-black1 mt-2 mb-3">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Pellentesque pretium velit nec risus consectetur, vel cursus
+                odio congue.
+              </p>
+              <!-- blog button -->
+              <div class="inline-block">
+                <a
+                  href="/"
+                  class="mid-banner-btn flex items-center gap-2 text-sm"
+                >
+                  <span class="font-semibold text-black3">Read More</span>
+                  <div
+                    class="bg-blue3 text-white w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300"
+                  >
+                    <i class="fa-solid fa-angle-right"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- grid blog 2 -->
+          <div>
+            <!-- blog img -->
+            <div class="blog-img cursor-pointer overflow-hidden">
+              <figure>
+                <img src="assets/images/blog-img2.jpg" alt="" loading="lazy" />
+              </figure>
+            </div>
+            <!-- blog body -->
+            <div class="py-4">
+              <!-- blog date & mini-link -->
+              <div class="flex justify-between">
+                <p class="text-[10px] text-black1">
+                  <a href="/" class="hover:text-blue3"> Model</a>,
+                  <a href="/" class="hover:text-blue3"> Traveling</a>
+                </p>
+                <p class="text-[10px] text-black1">September 6, 2023</p>
+              </div>
+              <!-- blog title -->
+              <a
+                href="/"
+                class="text-black3 hover:text-blue3 font-bold tracking-tight"
+                >Post Format Heading</a
+              >
+              <!-- blog discription -->
+              <p class="text-sm leading-[1.7] text-black1 mt-2 mb-3">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Pellentesque pretium velit nec risus consectetur, vel cursus
+                odio congue.
+              </p>
+              <!-- blog button -->
+              <div class="inline-block">
+                <a
+                  href="/"
+                  class="mid-banner-btn flex items-center gap-2 text-sm"
+                >
+                  <span class="font-semibold text-black3">Read More</span>
+                  <div
+                    class="bg-blue3 text-white w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300"
+                  >
+                    <i class="fa-solid fa-angle-right"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- grid blog 3 -->
+          <div>
+            <!-- blog img -->
+            <div class="blog-img cursor-pointer overflow-hidden">
+              <figure>
+                <img src="assets/images/blog-img3.jpg" alt="" loading="lazy" />
+              </figure>
+            </div>
+            <!-- blog body -->
+            <div class="py-4">
+              <!-- blog date & mini-link -->
+              <div class="flex justify-between">
+                <p class="text-[10px] text-black1">
+                  <a href="/" class="hover:text-blue3"> Articles</a>,
+                  <a href="/" class="hover:text-blue3"> Asides</a>,
+                  <a href="/" class="hover:text-blue3"> Equipollent</a>,
+                  <a href="/" class="hover:text-blue3"> Markup</a>
+                </p>
+                <p class="text-[10px] text-black1">September 6, 2023</p>
+              </div>
+              <!-- blog title -->
+              <a
+                href="/"
+                class="text-black3 hover:text-blue3 font-bold tracking-tight"
+                >Etiam laoreet sem</a
+              >
+              <!-- blog discription -->
+              <p class="text-sm leading-[1.7] text-black1 mt-2 mb-3">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Pellentesque pretium velit nec risus consectetur, vel cursus
+                odio congue.
+              </p>
+              <!-- blog button -->
+              <div class="inline-block">
+                <a
+                  href="/"
+                  class="mid-banner-btn flex items-center gap-2 text-sm"
+                >
+                  <span class="font-semibold text-black3">Read More</span>
+                  <div
+                    class="bg-blue3 text-white w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300"
+                  >
+                    <i class="fa-solid fa-angle-right"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- features section -->
+      <section class="container">
+        <div
+          class="grid xl:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-x-4 gap-y-8 py-16 border-t"
+        >
+          <!-- grid feature 1 -->
+          <div class="feature-hover flex items-center gap-3">
+            <i
+              class="fa-solid fa-truck-fast text-3xl text-blue3 transition-all duration-300"
+            ></i>
+            <div>
+              <h1 class="text-black3 font-semibold text-lg tracking-tight">
+                Free Shipping & Returns
+              </h1>
+              <p class="text-sm text-black1">Free shipping over $99.</p>
+            </div>
+          </div>
+          <!-- grid feature 2 -->
+          <div class="feature-hover flex items-center gap-3">
+            <i
+              class="fa-solid fa-circle-dollar-to-slot text-3xl text-blue3 transition-all duration-300"
+            ></i>
+            <div>
+              <h1 class="text-black3 font-semibold text-lg tracking-tight">
+                Money Back Guarantee
+              </h1>
+              <p class="text-sm text-black1">100% money back guarantee</p>
+            </div>
+          </div>
+          <!-- grid feature 3 -->
+          <div class="feature-hover flex items-center gap-3">
+            <i
+              class="fa-solid fa-headset text-3xl text-blue3 transition-all duration-300"
+            ></i>
+            <div>
+              <h1 class="text-black3 font-semibold text-lg tracking-tight">
+                Online Support 24/7
+              </h1>
+              <p class="text-sm text-black1">Lorem ipsum dolor sit amet.</p>
+            </div>
+          </div>
+          <!-- grid feature 4 -->
+          <div class="feature-hover flex items-center gap-3">
+            <i
+              class="fa-solid fa-lock text-3xl text-blue3 transition-all duration-300"
+            ></i>
+            <div>
+              <h1 class="text-black3 font-semibold text-lg tracking-tight">
+                Secure Payment
+              </h1>
+              <p class="text-sm text-black1">Lorem ipsum dolor sit amet.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- news letter section -->
+      <section class="bg-yellow3 py-16">
+        <div class="container">
+          <div class="flex lg:flex-row flex-col items-center gap-5">
+            <!-- news letter title -->
+            <div
+              class="lg:basis-5/12 basis-full flex sm:flex-row flex-col items-center sm:text-start text-center sm:gap-10 gap-2"
+            >
+              <i class="fa-regular fa-envelope text-5xl text-black2"></i>
+              <div>
+                <h1 class="text-black3 font-semibold text-lg mb-[10px]">
+                  Subscribe Newsletter
+                </h1>
+                <p class="text-sm text-black2">
+                  Get all the latest information on Events, Sales and Offers.
+                  Sign up for newsletter today
+                </p>
+              </div>
+            </div>
+            <!-- news letter form -->
+            <div class="lg:basis-7/12 basis-full">
+              <form action="" class="flex gap-4">
+                <input
+                  type="text"
+                  placeholder="Email address"
+                  class="flex-1 rounded-lg md:px-6 px-4 text-sm outline-none"
+                />
+                <button
+                  type="submit"
+                  class="bg-black3 hover:bg-[#33373D] rounded-lg md:px-10 px-5 md:py-[14px] py-3 text-[13px] text-white tracking-wider"
+                >
+                  Subscribe
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- place footer here -->
+    <footer class="bg-black3 py-20">
+      <div class="container">
+        <div
+          class="flex flex-col md:flex-row text-gray6 border-b pb-10 border-[#373a3f]"
+        >
+          <!-- basis-1 -->
+          <div class="md:basis-1/2">
+            <!-- contact info -->
+            <div>
+              <h1 class="text-white capitalize text-lg font-semibold">
+                contact info
+              </h1>
+              <p class="uppercase text-gray2 text-[13px] mt-4">address</p>
+              <h5 class="font-medium">132, My Street, Kingston, New York</h5>
+              <p class="uppercase text-gray2 text-[13px] mt-4">phone</p>
+              <h5 class="font-medium hover:text-white">
+                <a href="tel:+1687587638">toll free (168) 758-7638</a>
+              </h5>
+              <p class="uppercase text-gray2 text-[13px] mt-4">email</p>
+              <h5 class="font-medium hover:text-white">
+                <a href="mail-to:paypi@support.com">paypi@support.com</a>
+              </h5>
+              <!-- social icons -->
+              <div class="flex items-center gap-3 mt-5">
+                <a
+                  href="https:facebook.com"
+                  class="w-10 h-10 text-[13px] flex items-center justify-center rounded-full text-gray5 bg-[#292b2f] hover:bg-[#38548E] transition-all duration-500"
+                  ><i class="fa-brands fa-facebook-f"></i
+                ></a>
+                <a
+                  href="https:twitter.com"
+                  class="w-10 h-10 text-xs flex items-center justify-center rounded-full text-gray5 bg-[#292b2f] hover:bg-[#1A9BCE] transition-all duration-500"
+                  ><i class="fa-brands fa-x-twitter"></i
+                ></a>
+                <a
+                  href="https:instagram.com"
+                  class="w-10 h-10 text-sm flex items-center justify-center rounded-full text-gray5 bg-[#292b2f] hover:bg-[#FA1F73] transition-all duration-500"
+                  ><i class="fa-brands fa-instagram"></i
+                ></a>
+              </div>
+            </div>
+            <!-- about us -->
+            <div class="mt-8">
+              <h1 class="text-white capitalize text-lg font-semibold">
+                about us
+              </h1>
+              <div class="flex flex-col gap-5 mt-3">
+                <a href="/" class="capitalize text-sm hover:text-white"
+                  >about us</a
+                >
+                <a href="/" class="capitalize text-sm hover:text-white"
+                  >our stores</a
+                >
+                <a href="/" class="capitalize text-sm hover:text-white"
+                  >careers</a
+                >
+                <a href="/" class="capitalize text-sm hover:text-white"
+                  >brands</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- basis-2 -->
+          <div class="md:basis-1/2">
+            <!-- customer services -->
+            <div class="mt-8">
+              <h1 class="text-white capitalize text-lg font-semibold">
+                customer services
+              </h1>
+              <div class="lg:flex xl:gap-20 lg:gap-10">
+                <div class="flex flex-col gap-5 mt-3">
+                  <a href="/" class="capitalize text-sm hover:text-white"
+                    >contact us</a
+                  >
+                  <a href="/" class="capitalize text-sm hover:text-white"
+                    >delivery policy</a
+                  >
+                  <a href="/" class="capitalize text-sm hover:text-white"
+                    >exchange and return policy</a
+                  >
+                  <a href="/" class="capitalize text-sm hover:text-white"
+                    >electronic invoice</a
+                  >
+                </div>
+                <div class="flex flex-col gap-5 mt-3">
+                  <a href="/" class="capitalize text-sm hover:text-white"
+                    >corporate sales</a
+                  >
+                  <a href="/" class="capitalize text-sm hover:text-white"
+                    >privacy policy</a
+                  >
+                  <a href="/" class="capitalize text-sm hover:text-white"
+                    >terms of use</a
+                  >
+                  <a href="/" class="capitalize text-sm hover:text-white"
+                    >cookie policy</a
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- top 5 faqs -->
+            <div class="mt-8">
+              <h1 class="text-white capitalize text-lg font-semibold">
+                top 5 FAQs
+              </h1>
+              <div class="flex flex-col gap-5 mt-3">
+                <a href="/" class="capitalize text-sm hover:text-white"
+                  >Technical support contacts?</a
+                >
+                <a href="/" class="capitalize text-sm hover:text-white"
+                  >How do I know the date of my delivery?</a
+                >
+                <a href="/" class="capitalize text-sm hover:text-white"
+                  >My product did not arrive?</a
+                >
+                <a href="/" class="capitalize text-sm hover:text-white"
+                  >What are the payment methods?</a
+                >
+                <a href="/" class="capitalize text-sm hover:text-white"
+                  >Product availability?</a
+                >
+                <a href="/" class="capitalize text-sm text-white"
+                  >read more <i class="fa-solid fa-chevron-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col-reverse md:flex-row gap-4 items-center justify-between pt-4 text-black1"
+        >
+          <p class="text-xs">© Porto eCommerce. 2024. All Rights Reserved</p>
+          <div class="text-4xl">
+            <i class="fa-brands fa-cc-visa"></i>
+            <i class="fa-brands fa-cc-paypal"></i>
+            <i class="fa-brands fa-cc-stripe"></i>
+            <i class="fa-brands fa-cc-mastercard"></i>
+            <i class="fa-brands fa-cc-discover"></i>
+            <i class="fa-brands fa-cc-apple-pay"></i>
+            <i class="fa-brands fa-cc-amazon-pay"></i>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <script>
+      const swiperEl1 = document.querySelector("#product-track1");
+      const swiperEl2 = document.querySelector("#product-track2");
+      Object.assign(swiperEl1, {
+        slidesPerView: 2,
+        spaceBetween: 10,
+        pagination: {
+          clickable: true,
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 15,
+          },
+          768: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+          },
+          1024: {
+            slidesPerView: 5,
+            spaceBetween: 20,
+          },
+        },
+      });
+      Object.assign(swiperEl2, {
+        slidesPerView: 2,
+        spaceBetween: 10,
+        pagination: {
+          clickable: true,
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 15,
+          },
+          768: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+          },
+          1024: {
+            slidesPerView: 5,
+            spaceBetween: 20,
+          },
+        },
+      });
+      swiperEl1.initialize();
+      swiperEl2.initialize();
+      var swiper = new Swiper(".single-product-swiper", {
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>

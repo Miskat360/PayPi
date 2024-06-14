@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.tabs {
+  display: none;
+}
+.active {
+  display: block;
+}
+.active-tab {
+  color: #0155b5;
+  border-color: #0155b5;
+}
+a.mini-card-btn:hover span {
+  color: #115db1;
+}
+a.mini-card-btn:hover div.card-icon {
+  transform: translateX(6px);
+}
+
+a.card-btn:hover span {
+  color: #115db1;
+}
+a.card-btn:hover div.card-icon {
+  transform: translateX(6px);
+  background-color: #115db1;
+  color: white;
+}
+
+div.cata-img-con:hover img {
+  scale: 1.1;
+}
+
+a.mid-banner-btn:hover span {
+  color: #000;
+}
+a.mid-banner-btn:hover div {
+  transform: translateX(6px);
+  background-color: #000;
+  color: white;
+}
+
+.feature-hover:hover i {
+  scale: 1.11;
+}
+
+figure {
+  position: relative;
+}
+
+.blog-img figure::before {
+  position: absolute;
+  top: 0;
+  left: -75%;
+  z-index: 2;
+  display: block;
+  content: "";
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
+  transform: skewX(-25deg);
+}
+
+.blog-img figure:hover::before {
+  animation: shine 0.75s;
+}
+@keyframes shine {
+  100% {
+    left: 125%;
+  }
+}
